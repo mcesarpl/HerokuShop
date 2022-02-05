@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "target": "es2019",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "rootDir": "./",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+  }
+}
