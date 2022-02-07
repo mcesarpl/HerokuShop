@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { ServerFactory } from './factories/ServerFactory';
+import ServerFactory from './factories/ServerFactory';
 
 const env = process.env.NODE_ENV || 'dev';
 dotenv.config({ path: `./config/${env}.env` });
