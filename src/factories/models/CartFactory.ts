@@ -1,5 +1,5 @@
-import { Cart as CartInterface } from '../interfaces';
-import { Cart } from '../classes/Cart';
+import { Cart as CartInterface } from '../../interfaces';
+import Cart from '../../classes/Cart';
 
 export default class CartFactory {
 

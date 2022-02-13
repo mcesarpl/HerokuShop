@@ -1,6 +1,6 @@
 import { Game as GameInterface } from '../interfaces';
 
-export class Game implements GameInterface {
+export default class Game implements GameInterface {
 
   name: string;
 

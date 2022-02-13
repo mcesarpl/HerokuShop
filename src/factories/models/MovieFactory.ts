@@ -1,5 +1,5 @@
-import { Movie as MovieInterface } from '../interfaces';
-import { Movie } from '../classes/Movie';
+import { Movie as MovieInterface } from '../../interfaces';
+import Movie from '../../classes/Movie';
 
 export default class MovieFactory {
 
