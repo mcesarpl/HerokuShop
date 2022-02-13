@@ -1,6 +1,6 @@
 import { Movie as MovieInterface } from '../interfaces';
 
-export class Movie implements MovieInterface {
+export default class Movie implements MovieInterface {
 
   name: string;
 

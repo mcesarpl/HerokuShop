@@ -2,7 +2,7 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
-import routes from '../routes/router';
+import routes from '../routes/index.routes';
 
 class ExpressApp {
   private app = express();

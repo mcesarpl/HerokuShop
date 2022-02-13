@@ -1,5 +1,5 @@
-import { Game as GameInterface } from '../interfaces';
-import { Game } from '../classes/Game';
+import { Game as GameInterface } from '../../interfaces';
+import Game from '../../classes/Game';
 
 export default class GameFactory {
 
