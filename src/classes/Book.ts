@@ -1,6 +1,6 @@
 import { Book as BookInterface } from '../interfaces';
 
-export class Book implements BookInterface {
+export default class Book implements BookInterface {
 
   name: string;
 
@@ -8,7 +8,7 @@ export class Book implements BookInterface {
 
   discount: number;
 
-  writter: string;
+  writer: string;
 
   genre: string;
 
@@ -16,7 +16,7 @@ export class Book implements BookInterface {
     this.name = instance.name;
     this.price = instance.price;
     this.discount = instance.discount;
-    this.writter = instance.writter;
+    this.writer = instance.writer;
     this.genre = instance.genre;
   }
 }

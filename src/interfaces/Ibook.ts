@@ -1,6 +1,6 @@
 import { Item } from './index';
 
 export interface Book extends Item {
-  writter: string;
+  writer: string;
   genre: string;
 }
