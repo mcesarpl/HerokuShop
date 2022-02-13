@@ -1,6 +1,6 @@
 import ExpressServer from '../services/ExpressServer';
 
-export class ServerFactory {
+export default class ServerFactory {
   public static create() {
     return new ExpressServer();
   }

@@ -1,8 +1,11 @@
-import * as dotenv from 'dotenv';
-import { ServerFactory } from './factories/ServerFactory';
+import ServerFactory from './factories/ServerFactory';
 
-const env = process.env.NODE_ENV || 'dev';
-dotenv.config({ path: `./config/${env}.env` });
+import db from './services/MysqlServer';
 
-const server = ServerFactory.create();
-server.init();
+db.authenticate().then(() => {
+  const server = ServerFactory.create();
+  server.init();
+  console.log('Server has started...');
+}).catch((error) => {
+  console.log(error);
+});
