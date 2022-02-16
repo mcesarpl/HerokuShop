@@ -6,7 +6,7 @@ import CartRoutes from './cart.routes';
 
 const router = express.Router();
 
-router.get('/check', (req, res) => {
+router.get('/', (req, res) => {
   res.status(200).json({ message: 'App listening...' });
 });
 
