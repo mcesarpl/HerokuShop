@@ -1,9 +1,7 @@
-import * as dotenv from 'dotenv';
-
-const env = process.env.NODE_ENV || 'dev';
-dotenv.config({ path: `./config/${env}.env` });
-
+import InitEnvt from './InitEnv';
 import { Sequelize } from 'sequelize';
+
+InitEnvt.init();
 
 export default new Sequelize(
   process.env.MYSQL_NAME || '',
