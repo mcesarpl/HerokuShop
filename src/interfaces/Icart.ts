@@ -1,7 +1,7 @@
 import { Item } from './Iitem';
 
 export interface Cart {
-  abondoned: boolean;
+  abandoned: boolean;
   itens: Item[];
   subtotal: number;
   discounts: number;

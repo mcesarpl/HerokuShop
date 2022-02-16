@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import db from '../../services/MysqlServer';
+import ArrayJsonConverter from '../../utils/ArrayJsonConverter';
 
 const Cart = db.define(
   'carts',
@@ -15,8 +16,14 @@ const Cart = db.define(
       allowNull: false,
     },
     itens: {
-      type: Sequelize.ARRAY,
+      type: Sequelize.STRING,
       allowNull: false,
+      get() {
+        return ArrayJsonConverter.stringToArray(this.getDataValue('itens'));
+      },
+      set(val: JSON[]) {
+        this.setDataValue('itens', ArrayJsonConverter.arrayToString(val));
+      },
     },
     subtotal: {
       type: Sequelize.FLOAT,

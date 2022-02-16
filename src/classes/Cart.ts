@@ -1,7 +1,7 @@
 import { Cart as CartInterface, Item } from '../interfaces';
 
 export default class Cart implements CartInterface {
-  abondoned: boolean;
+  abandoned: boolean;
 
   itens: Item[];
 
@@ -14,11 +14,11 @@ export default class Cart implements CartInterface {
   total: number;
 
   constructor(instance) {
-    this.abondoned = instance.abondoned;
-    this.itens = instance.itens;
-    this.discounts = instance.discounts;
-    this.taxes = instance.taxes;
-    this.total = instance.total;
+    this.abandoned = instance.abandoned || false;
+    this.itens = instance.itens || [];
+    this.discounts = instance.discounts || 0;
+    this.taxes = instance.taxes || 0;
+    this.total = instance.total || 0;
 
     this.calculateSubtotal();
     this.calculateDiscounts();
