@@ -52,7 +52,7 @@ class ExpressApp {
   async init() {
     this.midddlewares();
     this.routes();
-    this.app.listen(process.env.EXPRESS_PORT);
+    this.app.listen(process.env.PORT);
   }
 }
 
