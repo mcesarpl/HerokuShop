@@ -3,6 +3,7 @@
 import { Request, Response } from 'express';
 import { Database } from '../interfaces/Idatabase';
 import Game from '../classes/Game';
+import log from '../services/Logger';
 
 export default class GameController {
 
@@ -55,7 +56,7 @@ export default class GameController {
       return res.status(200).json(result);
 
     } catch (error) {
-      console.log(error);
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
       
     }
