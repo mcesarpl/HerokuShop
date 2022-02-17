@@ -3,6 +3,7 @@
 import { Request, Response } from 'express';
 import { Database } from '../interfaces/Idatabase';
 import Movie from '../classes/Movie';
+import log from '../services/Logger';
 
 export default class MovieController {
 
@@ -55,7 +56,7 @@ export default class MovieController {
       return res.status(200).json(result);
 
     } catch (error) {
-      console.log(error);
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
       
     }
