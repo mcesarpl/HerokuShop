@@ -22,6 +22,7 @@ export default class BookController {
       return res.status(200).json(result);
 
     } catch (error) {
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
       
     }
@@ -36,7 +37,8 @@ export default class BookController {
       return res.status(201).send();
 
     } catch (error) {
-      return res.status(500).send();
+      log.error(error.stack);
+      return res.status(500).send({ message: 'Internal Server Error' });
     }
   }
 
@@ -75,8 +77,8 @@ export default class BookController {
       return res.status(200).json(result);
 
     } catch (error) {
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
-      
     }
   }
 }

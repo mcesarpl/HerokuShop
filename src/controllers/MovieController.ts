@@ -22,8 +22,8 @@ export default class MovieController {
       return res.status(200).json(result);
 
     } catch (error) {
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
-      
     }
   }
 
@@ -36,6 +36,7 @@ export default class MovieController {
       return res.status(201).send();
 
     } catch (error) {
+      log.error(error.stack);
       return res.status(500).send();
     }
   }
@@ -75,6 +76,7 @@ export default class MovieController {
       return res.status(200).json(result);
 
     } catch (error) {
+      log.error(error.stack);
       return res.status(500).json({ message: 'Internal Server Error' });
       
     }
