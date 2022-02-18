@@ -1,8 +1,13 @@
 import { createLogger, format, transports } from 'winston';
+import { ElasticsearchTransport, ElasticsearchTransformer  } from 'winston-elasticsearch';
 import moment from 'moment';
+import InitEnv from './InitEnv';
+
+InitEnv.init();
 
 class Logger {
   create() {
+
     const { combine, colorize, printf } = format;
  
     const { Console } = transports;
@@ -28,7 +33,19 @@ class Logger {
       format: combine(colorize(), errorStackFormat(), myFormat),
     });
 
+    const esTransportOpts = {
+      level: 'debug',
+      transformer: (logData) => {
+        const transformed = ElasticsearchTransformer(logData);
+        return transformed;
+      },
+      clientOpts: { node: process.env.ELASTIC_SERVER },
+    };
+    
+    const esTransport = new ElasticsearchTransport(esTransportOpts);
+
     wintstonLogger.add(consoleTransport);
+    wintstonLogger.add(esTransport);
 
     return wintstonLogger;
   }
