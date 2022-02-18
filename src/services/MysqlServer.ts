@@ -1,7 +1,7 @@
-import InitEnvt from './InitEnv';
+import InitEnv from './InitEnv';
 import { Sequelize } from 'sequelize';
 
-InitEnvt.init();
+InitEnv.init();
 
 export default new Sequelize(
   process.env.MYSQL_NAME || '',
