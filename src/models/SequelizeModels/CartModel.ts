@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../../services/MysqlServer';
 import ArrayJsonConverter from '../../utils/ArrayJsonConverter';
-import { Item } from '../../interfaces';
+import { CartItem } from '../../interfaces';
 
 const Cart = db.define(
   'carts',
@@ -19,11 +19,11 @@ const Cart = db.define(
     itens: {
       type: Sequelize.STRING,
       allowNull: false,
-      get() {
-        return ArrayJsonConverter.stringToArray(this.getDataValue('itens'));
+      get(): CartItem[] {
+        return ArrayJsonConverter.stringToArray<CartItem>(this.getDataValue('itens'));
       },
-      set(val: Item[]) {
-        this.setDataValue('itens', ArrayJsonConverter.arrayToString(val));
+      set(val: CartItem[]) {
+        this.setDataValue('itens', ArrayJsonConverter.arrayToString<CartItem>(val));
       },
     },
     subtotal: {
