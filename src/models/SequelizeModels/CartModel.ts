@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import db from '../../services/MysqlServer';
 import ArrayJsonConverter from '../../utils/ArrayJsonConverter';
+import { Item } from '../../interfaces';
 
 const Cart = db.define(
   'carts',
@@ -21,7 +22,7 @@ const Cart = db.define(
       get() {
         return ArrayJsonConverter.stringToArray(this.getDataValue('itens'));
       },
-      set(val: JSON[]) {
+      set(val: Item[]) {
         this.setDataValue('itens', ArrayJsonConverter.arrayToString(val));
       },
     },
