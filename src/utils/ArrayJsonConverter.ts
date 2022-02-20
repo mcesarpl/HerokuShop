@@ -1,5 +1,7 @@
+import { Item } from '../interfaces';
+
 class ArrayJsonConverter {
-  arrayToString(input: JSON[]): string {
+  arrayToString(input: Item[]): string {
     const stringfied = input.map((item) => {
       return JSON.stringify(item);
     });
@@ -7,7 +9,7 @@ class ArrayJsonConverter {
     return stringfied.join(';');
   }
 
-  stringToArray(input: string): JSON[] {
+  stringToArray(input: string): Item[] {
     const parsed = input.split(';');
 
     const final = parsed.map((item) => {
