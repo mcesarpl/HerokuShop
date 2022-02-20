@@ -34,7 +34,7 @@ class Logger {
     });
 
     const esTransportOpts = {
-      level: 'info',
+      level: 'error',
       transformer: (logData) => {
         const transformed = ElasticsearchTransformer(logData);
         return transformed;
