@@ -1,9 +1,8 @@
-import { Cart as CartInterface, Item } from '../interfaces';
-
+import { Cart as CartInterface, CartItem } from '../interfaces';
 export default class Cart implements CartInterface {
   abandoned: boolean;
 
-  itens: Item[];
+  itens: CartItem[];
 
   subtotal: number;
 

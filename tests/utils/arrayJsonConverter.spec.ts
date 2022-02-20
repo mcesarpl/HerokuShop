@@ -19,14 +19,14 @@ describe('Array Json Converter Tests', () => {
 
   it('Should transform an array json in a string', () => {
 
-    const converted = ArrayJsonConverter.arrayToString(arrayMock);
+    const converted = ArrayJsonConverter.arrayToString<object>(arrayMock);
 
     expect(converted).toEqual(stringMock);
   });
 
   it('Should transform a string json into an array', () => {
 
-    const converted = ArrayJsonConverter.stringToArray(stringMock);
+    const converted = ArrayJsonConverter.stringToArray<object>(stringMock);
 
     expect(converted).toEqual(arrayMock);
   });
