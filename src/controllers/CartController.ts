@@ -4,6 +4,7 @@ import { Request, Response } from 'express';
 import { Database } from '../interfaces/Idatabase';
 import Cart from '../classes/Cart';
 import log from '../services/Logger';
+import ValidateCart from '../utils/ValidateCart';
 
 export default class CartController {
 
@@ -15,6 +16,12 @@ export default class CartController {
 
   async create(req: Request, res: Response) {
     const newCart = new Cart(req.body);
+    const isValid = await ValidateCart.validate(newCart);
+
+    if (!isValid) {
+      log.error('Invalid cart');
+      return res.status(422).json({ message: 'Unprocessable Entity' });
+    }
 
     try {
       const result = await this.database.create(newCart);
