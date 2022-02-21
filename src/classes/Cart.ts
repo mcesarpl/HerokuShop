@@ -1,9 +1,8 @@
-import { Cart as CartInterface, Item } from '../interfaces';
-
+import { Cart as CartInterface, CartItem } from '../interfaces';
 export default class Cart implements CartInterface {
   abandoned: boolean;
 
-  itens: Item[];
+  itens: CartItem[];
 
   subtotal: number;
 
@@ -49,7 +48,13 @@ export default class Cart implements CartInterface {
   }
 
   private calculateTotal(): void {
-    this.total = this.subtotal * (1 - this.discounts) * (1 + this.taxes);
+    const total = this.subtotal * (1 - this.discounts) * (1 + this.taxes);
+    if (total < 0) {
+      this.total = 0;
+      return;
+    }
+
+    this.total = total;
   }
 
 }

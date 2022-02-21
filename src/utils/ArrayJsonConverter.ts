@@ -1,5 +1,5 @@
 class ArrayJsonConverter {
-  arrayToString(input: JSON[]): string {
+  arrayToString<T>(input: T[]): string {
     const stringfied = input.map((item) => {
       return JSON.stringify(item);
     });
@@ -7,7 +7,7 @@ class ArrayJsonConverter {
     return stringfied.join(';');
   }
 
-  stringToArray(input: string): JSON[] {
+  stringToArray<T>(input: string): T[] {
     const parsed = input.split(';');
 
     const final = parsed.map((item) => {

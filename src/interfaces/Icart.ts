@@ -1,8 +1,8 @@
-import { Item } from './Iitem';
+import { CartItem } from './index';
 
 export interface Cart {
   abandoned: boolean;
-  itens: Item[];
+  itens: CartItem[];
   subtotal: number;
   discounts: number;
   taxes: number;

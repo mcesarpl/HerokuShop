@@ -19,7 +19,7 @@ class Logger {
     });
      
     const wintstonLogger = createLogger({
-      level: 'debug',
+      level: 'info',
     });
 
     const errorStackFormat = format((info) => {
@@ -34,7 +34,7 @@ class Logger {
     });
 
     const esTransportOpts = {
-      level: 'debug',
+      level: 'error',
       transformer: (logData) => {
         const transformed = ElasticsearchTransformer(logData);
         return transformed;
