@@ -2,7 +2,7 @@ version: '2.2'
 services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
-    container_name: es01
+    container_name: elastic
     environment:
       - node.name=es01
       - cluster.name=es-docker-cluster
@@ -20,15 +20,25 @@ services:
 
   kib01:
     image: docker.elastic.co/kibana/kibana:7.15.2
-    container_name: kib01
+    container_name: kibana
     ports:
       - 5601:5601
     environment:
       ELASTICSEARCH_URL: http://es01:9200
       ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
+
   mysql:
+    container_name: MySQL
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+
+  redis:
+    container_name: Redis
+    image: redis
+    volumes:
+      - /data/db/redis
+    ports:
+      - "6379:6379"
